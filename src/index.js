@@ -3,10 +3,15 @@ import React from 'react';
 class ReactTestbed extends React.Component{
   constructor(props){
     super(props);
+    this.state = {
+      activated: true,
+      currentProps: {}
+    };
   }
 
   render(){
-    
+    const component = this.props.component;
+    <component {...this.state.currentProps} />
   }
 }
 
