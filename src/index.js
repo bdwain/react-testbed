@@ -11,9 +11,16 @@ class ReactTestbed extends React.Component{
   }
 
   submitProps(){
+    let functions = this.functionInput.value.split(' ');
+    let newProps = JSON.parse(this.propsInput.value);
+    functions.reduce((cur, fn) => {
+      cur[fn] = () => console.log(fn); 
+      return cur;
+    }, newProps);
+    
     this.setState({
       activated: true,
-      currentProps: JSON.parse(this.propsInput.value)
+      currentProps: newProps
     });
   }
 
@@ -26,7 +33,11 @@ class ReactTestbed extends React.Component{
           <textarea name="props" ref={c => this.propsInput = c} />
         </div>
         <div>
-          <button onClick={this.submitProps}>Render with props</button>
+          <div>Enter names of function props, separated by spaces. They will log their names to the console when called.</div>
+          <textarea name="functionProps" ref={c => this.functionInput = c} />
+        </div>
+        <div>
+          <button onClick={this.submitProps}>Render component</button>
         </div>
         <div>
           {maybeComponent}
