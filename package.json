@@ -1,6 +1,6 @@
 {
   "name": "react-testbed",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Dynamically test react components",
   "registry": "npm",
   "main": "./lib/index.js",
