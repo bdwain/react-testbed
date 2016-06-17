@@ -11,7 +11,7 @@ class ReactTestbed extends React.Component{
 
   render(){
     const component = this.props.component;
-    <component {...this.state.currentProps} />
+    return React.createElement(component, this.state.currentProps);
   }
 }
 
